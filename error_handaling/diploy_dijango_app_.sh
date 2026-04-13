@@ -15,6 +15,7 @@ code_clone() {
 install_requirements() {
 	
 	echo "Installing dependancies"
+	sudo apt update
 	sudo apt install docker.io nginx -y
 
 }
