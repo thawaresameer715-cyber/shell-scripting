@@ -1,8 +1,8 @@
 #/bin/bash
 #
-#Thsis for for loop
+#Ths is for for loop
 
-for ((num=1 ; num<=5; num++))
+for ((num=1; num<=5; num++))
 do
 	mkdir demo$num
 done
