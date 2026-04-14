@@ -9,7 +9,7 @@ task
 code_clone() {
 
 	echo "Clonnig the fjango app"
-	git clone https://github.com/shrutisakharkar/django-notes-app.git
+	git clone https://github.com/LondheShubham153/django-notes-app.git
 }
 
 install_requirements() {
@@ -22,6 +22,7 @@ install_requirements() {
 
 required_restarts() {
 
+	sudo chmod 777 /var/run/docker.sock
 	sudo systemctl enable docker 
 	sudo systemctl enable nginx
 
@@ -29,17 +30,24 @@ required_restarts() {
 
 deploy() {
 	
-	docker build -t notes-app .
-	docker run -dp 8000:8000 notes-app:latest
+
+	docker build -t notes-app . #creating docker image using docker file
+	docker run -dp 8000:8000 notes-app:latest # running the docker image
 
 }
 
 echo "-------------Deployment started----------------------"
+
+#Error handling
 if ! code_clone; then
 	echo "the code dir already exists"
 	cd django-notes-app
 fi
-install_requirements
+
+if ! install_requirements; then 
+	echo "installation failed"
+	exit 1
+fi
 required_restarts
 deploy
 echo"---------Deployment done----------"
