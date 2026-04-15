@@ -53,4 +53,5 @@ if ! deploy; then
 	echo "Deployment failed"
 	#SendEmail
 	exit 1
+fi
 echo"---------END OD SHELL-SCRIPT----------"
