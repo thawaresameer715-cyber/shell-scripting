@@ -36,7 +36,7 @@ deploy() {
 
 }
 
-echo "-------------Deployment started----------------------"
+echo "-------------DEPLOYMENT STARTED----------------------"
 
 #Error handling
 if ! code_clone; then
@@ -49,5 +49,8 @@ if ! install_requirements; then
 	exit 1
 fi
 required_restarts
-deploy
-echo"---------Deployment done----------"
+if ! deploy; then
+	echo "Deployment failed"
+	#SendEmail
+	exit 1
+echo"---------END OD SHELL-SCRIPT----------"
