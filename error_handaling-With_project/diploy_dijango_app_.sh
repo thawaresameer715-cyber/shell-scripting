@@ -9,7 +9,7 @@ task
 code_clone() {
 
 	echo "Clonnig the fjango app"
-	git clone https://github.com/LondheShubham153/django-notes-app.git
+	git clone https://github.com/thawaresameer715-cyber/Shell-Scripting-Django-notes-.git
 }
 
 install_requirements() {
@@ -30,7 +30,7 @@ required_restarts() {
 
 deploy() {
 	
-
+	cd Shell-Scripting-Django-notes-/django-notes-app
 	docker build -t notes-app . #creating docker image using docker file
 	docker run -dp 8000:8000 notes-app:latest # running the docker image
 
